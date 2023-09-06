@@ -1,0 +1,30 @@
+nav{
+    height: 80px;
+    display: flex;
+}
+
+.nav__container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.nav__search-bar input{
+    padding: 6px 24px;
+    font-size: 17px;
+    border: none;
+}
+
+.nav__search-icon{
+    width: 32px;
+    border: none;
+    background-color: transparent;
+}
+
+.cart{
+    width: 32px;
+}   

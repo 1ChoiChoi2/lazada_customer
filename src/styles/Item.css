@@ -1,0 +1,26 @@
+.item{
+    width: calc(100% / 4);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item__img--wrapper{
+    height: 320px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+.item__title {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.item__title--link {
+    color: #242424;
+}
+
+.item__price{
+    font-size: 16px;
+    margin: 8px 0 24px 0;
+}

@@ -1,0 +1,32 @@
+.item__previous{
+    display: flex;
+    align-items: center;
+}
+
+.item__selected{
+    display: flex;
+    margin: 30px 0;
+}
+
+.item__selected--figure{
+    width: 200px;
+    height: 300px;
+    padding-right: 30px;
+}
+
+.item__selected--detail{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    gap: 20px;
+}
+
+
+
+.item__recommended{
+    text-align: center;
+}
+
+.item__recommended--container{
+    display: flex;
+}
