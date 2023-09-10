@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Cart.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+// 4 items per cart page before active pagination
+const itemsPerPage = 4;
 
 const Cart = ({ cart, updateQuantity, removeFromCart, removeAllItems }) => {
-  
+  // Define CurrentPage + Calculate Total Number of Page
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(cart.length / itemsPerPage);
+
+  // Calculate Index range for the each page
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
   // Calculate price of all the Item in the Cart
   const calculateTotalPrice = () => {
     let total = 0;
@@ -12,7 +23,10 @@ const Cart = ({ cart, updateQuantity, removeFromCart, removeAllItems }) => {
     };
 
     return total;
-  }
+  };
+
+  //
+  console.log(cart)
   
   return (
     <div className='cart__container'>
@@ -27,7 +41,9 @@ const Cart = ({ cart, updateQuantity, removeFromCart, removeAllItems }) => {
           <div className='cart__body'>
             
             {
-              cart.map((cartItem) => (
+              cart
+              .slice(startIndex, endIndex)
+              .map((cartItem) => (
                 <div className='cart__item--details' key={cartItem.id}>
                   <div className='cart__item'>
                     <img src={cartItem.url} alt='item-img' className='cart__item--img'/>
@@ -51,6 +67,24 @@ const Cart = ({ cart, updateQuantity, removeFromCart, removeAllItems }) => {
                   </div>
                 </div>
               ))
+            }
+            {
+              /** Pagination controls  */
+              totalPages > 1 && (
+                <div>
+                  <button 
+                  onClick={() => setCurrentPage(currentPage -1)}
+                  disabled={currentPage === 1}>
+                    <FontAwesomeIcon icon="arrow-left"/>
+                  </button>
+                  <span className='cart__page'>Page {currentPage} of {totalPages}</span>
+                  <button
+                  onClick={() => setCurrentPage(currentPage + 1)}
+                  disabled={currentPage === totalPages}>
+                    <FontAwesomeIcon icon="arrow-right"/>
+                  </button>
+                </div>
+              )
             }
           </div>
         </div>
