@@ -81,3 +81,7 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.cart__page {
+    margin: 0 10px;
+}
